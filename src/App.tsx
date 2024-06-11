@@ -1,9 +1,14 @@
 import './App.css';
 import Modal from './Components/Modal/Modal';
 import {useState} from 'react';
+import Alert from './Components/Alert/Alert';
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showPrimaryAlert, setShowPrimaryAlert] = useState(true);
+  const [showSuccessAlert] = useState(true);
+  const [showWarningAlert] = useState(true);
+  const [showDangerAlert, setShowDangerAlert] = useState(true);
 
   return (
     <>
@@ -21,7 +26,18 @@ const App = () => {
             </Modal>
           </div>
           <div className="col-5 ">
-            ALert
+            <Alert show={showPrimaryAlert} type="primary" onDismiss={() => setShowPrimaryAlert(false)}>
+              An example primary alert
+            </Alert>
+            <Alert show={showSuccessAlert} type="success">
+              An example success alert
+            </Alert>
+            <Alert show={showWarningAlert} type="warning">
+              An example warning alert
+            </Alert>
+            <Alert show={showDangerAlert} type="danger" onDismiss={() => setShowDangerAlert(false)}>
+              An example danger alert
+            </Alert>
           </div>
         </div>
       </div>
